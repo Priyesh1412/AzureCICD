@@ -10,12 +10,11 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: UiPathPack@2
+- task: UiPathPack@3
   inputs:
     versionType: 'AutoVersion'
     projectJsonPath: '$(Build.SourcesDirectory)'
-    outputType: 'Process'
-    orchestratorConnection: 'AzureOrch-1'
+    orchestratorConnection: 'UiPathDemoOrchService'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     traceLevel: 'Information'
 - task: PublishBuildArtifacts@1
